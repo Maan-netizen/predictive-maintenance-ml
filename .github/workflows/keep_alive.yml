@@ -10,4 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping Streamlit App
-        run: curl -s -L -o /dev/null -w "%{http_code}\n" https://predictive-maintenance-ml-maan.streamlit.app
+        run: |
+          STATUS=$(curl -s -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" -o /dev/null -w "%{http_code}" https://predictive-maintenance-ml-maan.streamlit.app)
+          echo "HTTP Status: $STATUS"
